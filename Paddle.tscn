@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciqr2f6a265nw"]
+
+[ext_resource type="Script" uid="uid://c3kimyb5xr8kf" path="res://Paddle.gd" id="1_6vb5h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cm0pq"]
+size = Vector3(2, 2, 0.5)
+
+[node name="Paddle" type="CharacterBody3D"]
+motion_mode = 1
+script = ExtResource("1_6vb5h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_cm0pq")
+debug_color = Color(0.632269, 0.421778, 3.85046e-07, 0.42)

@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfivurm3edl66"]
+
+[ext_resource type="PackedScene" uid="uid://bxcve8c4ung5x" path="res://Ball.tscn" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://ciqr2f6a265nw" path="res://Paddle.tscn" id="2_uu6xs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rxg2q"]
+friction = 0.0
+bounce = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxg2q"]
+size = Vector3(1, 10, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uu6xs"]
+size = Vector3(1, 10, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0du0"]
+size = Vector3(12, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_glv2v"]
+size = Vector3(12, 1, 20)
+
+[node name="Main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09714, -0.213558, 13.7279)
+projection = 2
+size = 2.802
+near = 1.0
+far = 300.0
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="Left Wall" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_rxg2q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Left Wall"]
+shape = SubResource("BoxShape3D_rxg2q")
+debug_color = Color(2.79158e-06, 0.551729, 0.441101, 0.42)
+
+[node name="Right Wall" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_rxg2q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Right Wall"]
+shape = SubResource("BoxShape3D_uu6xs")
+debug_color = Color(2.79158e-06, 0.551729, 0.441101, 0.42)
+
+[node name="Top Wall" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+physics_material_override = SubResource("PhysicsMaterial_rxg2q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Top Wall"]
+shape = SubResource("BoxShape3D_r0du0")
+debug_color = Color(2.79158e-06, 0.551729, 0.441101, 0.42)
+
+[node name="Bottom Wall" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.5, 0)
+physics_material_override = SubResource("PhysicsMaterial_rxg2q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Bottom Wall"]
+shape = SubResource("BoxShape3D_glv2v")
+debug_color = Color(2.79158e-06, 0.551729, 0.441101, 0.42)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.133333, 1, 1, 1)
+omni_range = 26.3695
+
+[node name="Ball" parent="." instance=ExtResource("1_glv2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00188351, -0.158408, 0.0174932)
+
+[node name="Paddle" parent="." instance=ExtResource("2_uu6xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09326, -1.19209e-07, 9.99644)
