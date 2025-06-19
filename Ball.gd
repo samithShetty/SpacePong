@@ -1,13 +1,14 @@
-extends RigidBody3D
+class_name Ball extends RigidBody3D
 
+@export var spin: Vector3
+
+
+func _physics_process(delta: float) -> void:
+	linear_velocity += spin*delta
+	
 func bounce():
-	print("bounce")
-	linear_velocity *= -1
+	print("bounce", linear_velocity)
 
 func _on_body_entered(body: Node3D) -> void:
-	#if body is Paddle:
+	if body is Paddle:
 		bounce()
-	
-
-func _on_area_entered(area: Area3D) -> void:
-	print("Score")

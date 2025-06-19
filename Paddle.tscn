@@ -5,10 +5,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_cm0pq"]
 size = Vector3(2, 2, 0.5)
 
-[node name="Paddle" type="CharacterBody3D"]
-motion_mode = 1
+[node name="Paddle" type="Area3D"]
 script = ExtResource("1_6vb5h")
+boost_speed = 15.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_cm0pq")
-debug_color = Color(0.632269, 0.421778, 3.85046e-07, 0.42)
+debug_color = Color(0.631373, 0.423529, 0, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

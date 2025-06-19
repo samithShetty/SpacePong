@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ControlMap" load_steps=2 format=3 uid="uid://bh8y308yr3ldw"]
+
+[ext_resource type="Script" uid="uid://bqfq3imxn1q3g" path="res://ControlMaps/ControlMap.gd" id="1_mnm0m"]
+
+[resource]
+script = ExtResource("1_mnm0m")
+dev_move_up = 4194320
+dev_move_left = 4194319
+dev_move_down = 4194322
+dev_move_right = 4194321
+dev_boost = 4194309
+move_up = 0
+move_left = 0
+move_down = 0
+move_right = 0
+boost = 0
+metadata/_custom_type_script = "uid://bqfq3imxn1q3g"
