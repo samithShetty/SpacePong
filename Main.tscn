@@ -81,7 +81,7 @@ player_control = ExtResource("4_fos0i")
 boost_speed = 20.0
 
 [node name="Paddle2" parent="." instance=ExtResource("2_uu6xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00211906, -0.0209122, -9.97453)
 player_id = 1
 player_control = ExtResource("4_cm0pq")
 boost_speed = 20.0
