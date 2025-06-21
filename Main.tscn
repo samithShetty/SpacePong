@@ -23,8 +23,9 @@ size = Vector3(12, 1, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_glv2v"]
 size = Vector3(12, 1, 20)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("ball")]
 script = ExtResource("1_r0du0")
+ball = NodePath("Ball")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09714, -0.213558, 13.7279)
@@ -73,7 +74,6 @@ omni_range = 26.3695
 
 [node name="Ball" parent="." instance=ExtResource("1_glv2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00188351, -0.158408, 0.0174932)
-linear_velocity = Vector3(0, 0, 15)
 
 [node name="Paddle1" parent="." instance=ExtResource("2_uu6xs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
@@ -92,6 +92,36 @@ player_id = 1
 
 [node name="ScoreZone2" parent="." instance=ExtResource("6_3dxm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="P1Score" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 31.0
+offset_top = 20.0
+offset_right = 72.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 2
+
+[node name="P2Score" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 17.0
+offset_right = -31.0
+offset_bottom = 116.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 2
 
 [connection signal="score" from="ScoreZone" to="." method="_on_score"]
 [connection signal="score" from="ScoreZone2" to="." method="_on_score"]
